@@ -307,6 +307,10 @@ form input{
     flex-direction: column;
     align-items: center;
   }
+  .header{
+    font-size: 2.4rem;
+    line-height: 2.5rem;
+  }
   .tasks-container{   
     max-width: 465px;
     margin: 0 auto;
