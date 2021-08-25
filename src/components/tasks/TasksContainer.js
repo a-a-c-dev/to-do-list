@@ -34,7 +34,6 @@ const TasksContainer = () => {
       const addTask = taskName => {
         let taskList = [...tasks, { taskName }];
         setTasks(taskList);
-        
         }
     
       const completeTask = index => {
@@ -50,20 +49,7 @@ const TasksContainer = () => {
 
     return (
         <div className="main-container">    
-            <ToggleContent
-                toggle={show => 
-                            <button className="btn-add-modal" onClick={show} >
-                                <h3>Press here to add new task</h3> 
-                                <img src={addIcon} alt="Add Icon"/>
-                            </button>
-                        }
-                content={hide => (
-                    <Modal>
-                        <NewTask addTask={addTask}  onClick={hide}/>
-                        <button className="close-btn" onClick={hide}>Close</button>
-                    </Modal>
-                )}
-            />
+          
             <div className="tasks-container">
                 {tasks.map((task, index) => (
                     <Task
@@ -75,6 +61,20 @@ const TasksContainer = () => {
                     />
                 ))}
             </div>
+            <ToggleContent
+                toggle={show => 
+                            <button className="btn-add-modal" onClick={show} >
+                                <h3>Press here to add new task</h3> 
+                                <img src={addIcon} alt="Add Icon"/>
+                            </button>
+                        }
+                content={hide => (
+                    <Modal>
+                        <NewTask addTask={addTask}  closeModal={hide}/>
+                        <button className="close-btn" onClick={hide}>Close</button>
+                    </Modal>
+                )}
+            />
         </div>
     )
 }
