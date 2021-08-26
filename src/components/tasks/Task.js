@@ -24,14 +24,3 @@ const Task = ({ task, index, completeTask, deleteTask }) => {
 }
 
 export default Task;
-
-
-
-
-/*
-              <div className="range-container">
-                  <input type="range" id="volume" name="volume"
-                    defaultValue='1' min="0" max="11"/>
-                    <label htmlfor="volume">importancy</label>
-                </div>
-*/
