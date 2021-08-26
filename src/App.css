@@ -243,6 +243,7 @@ form input{
   font-weight: 600;
   margin: .5rem 0 1em;
   font-family: 'Raleway', sans-serif;
+  text-transform: capitalize;
 }
 .main-container .error{
   color: #ffffff;
@@ -252,6 +253,7 @@ form input{
   padding: 1rem .5rem;
   margin: .5rem auto;
   max-width: 300px;
+  letter-spacing: .1rem;
 }
 
 @media (min-width:521px) and (max-width:767px) {
