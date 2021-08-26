@@ -17,27 +17,7 @@ const TasksContainer = () => {
           isCompleted: true
         },
         {
-          taskName: 'Complete portfolio',
-          isCompleted: false
-        },
-        {
-          taskName: 'Do the dishes',
-          isCompleted: false
-        },
-        {
-          taskName: 'Wipe the floor',
-          isCompleted: false
-        },
-        {
-          taskName: 'Sell your car.',
-          isCompleted: true
-        },
-        {
-          taskName: 'Fix upper floor Wifi.',
-          isCompleted: true
-        },
-        {
-          taskName: 'Complete portfolio',
+          taskName: 'buy groceries',
           isCompleted: false
         },
         {
@@ -87,12 +67,13 @@ const TasksContainer = () => {
             </div>
             <ToggleContent
                 toggle={show => 
-                            // Add validation here, if the number of tasks is bigger then 10 displat an error,
-                            // telling the user the he needed to delete before he could add some more
                             listIsFull?
                             (
                               <p className="error">
-                                  *List is full!<br/> please delete some of your tasks, in order to add some more
+                                * the list of tasks is full!<br/>
+                                the list of tasks can hold up to ten tasks,<br/>
+                                to add  more tasks
+                                please delete some of the tasks that have been completed 
                               </p>
                             )
                             :

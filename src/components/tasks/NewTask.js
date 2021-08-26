@@ -10,8 +10,8 @@ const NewTask = ({ addTask, closeModal}) => {
     const fieldIsValid = text => {
         const errors = {};
         const textPattern = /^[a-zA-Z0-9_.-]*$/
-        if (!text) errors.textRequired = "*Text is required, please insert text";
-        if (!text.match(textPattern)) errors.validText = "*Please insert text in English or numbers";
+        if (!text) errors.textRequired = "* Text is required, please insert text";
+        if (!text.match(textPattern)) errors.validText = "* Please insert text in English or numbers";
         setErrors(errors);
         return Object.keys(errors).length === 0
     };
