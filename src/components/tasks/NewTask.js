@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import addIcon from '../../assets/add-icon.svg';
 
 
-const NewTask = ({ addTask, closeModal}) => {
+const NewTask = React.memo(({ addTask, closeModal}) => {
     const [newTaskValue, setNewTaskValue] = useState('')
     const [errors, setErrors] = useState({});
 
     
-    const fieldIsValid = text => {
+    const fieldIsValid =useCallback( () => {
         const errors = {};
         const textPattern = /^[a-zA-Z0-9 .!?"-]+$/
-        if (!text) errors.textRequired = "* Text is required, please insert text";
-        if (!text.match(textPattern)) errors.validText = "* Please insert text in English or numbers";
+        if (!newTaskValue) errors.textRequired = "* Text is required, please insert text";
+        if (!newTaskValue.match(textPattern)) errors.validText = "* Please insert text in English or numbers";
         setErrors(errors);
         return Object.keys(errors).length === 0
-    };
+    },[newTaskValue]);
 
     const handleSubmit = event => {
         event.preventDefault();
-        if (!fieldIsValid(newTaskValue)) return;
+        if (!fieldIsValid()) return;
         addTask(newTaskValue);
         setNewTaskValue('');
         closeModal();
@@ -44,6 +44,6 @@ const NewTask = ({ addTask, closeModal}) => {
             )}
         </>
     )
-}
+})
 
 export default NewTask;
