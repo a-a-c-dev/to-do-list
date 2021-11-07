@@ -178,7 +178,7 @@ body{
   top: 50%;
   width: 70%;
   max-width: 450px;
-  min-height: 200px;
+  max-height: 85vh;
   padding: 4rem 2rem;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -255,6 +255,7 @@ form input{
   max-width: 300px;
   letter-spacing: .1rem;
 }
+
 
 @media (min-width:521px) and (max-width:767px) {
   .header{
@@ -348,8 +349,8 @@ form input{
   
   .btn-add-modal{
     flex-direction: row;
-    max-width: 550px;
-    font-size: 1.4rem;
+    max-width: 275px;
+    font-size: 1.4;
     bottom: 0;
   }
   .btn-add-modal img{
@@ -367,3 +368,26 @@ form input{
 
 }
 
+
+@media (max-width:813px) and (orientation:landscape) {
+  .header{
+    padding: .5em 0;
+    line-height: 1.4;
+    font-size: 1.4rem;
+  }
+  .tasks-container{
+    padding: 1em 0 0;
+    max-width: 320px;
+  }
+  .task-container{
+    max-width: 200px;
+  }
+  .btn-add-modal{
+    max-width: 200px;
+    font-size: 1.2rem;
+    top: 0;
+    right: 0;
+    left: auto;
+    transform: translate(10%, -35%);
+  }
+}
