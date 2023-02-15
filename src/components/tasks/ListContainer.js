@@ -1,4 +1,4 @@
-import React from "react";
+import {useId} from "react";
 import TaskContainer from "./TaskContainer";
 
  const ListContainer = ({tasks,completeTask,deleteTask}) => {
@@ -7,7 +7,7 @@ import TaskContainer from "./TaskContainer";
             {tasks.map((task, index) =>  
                 (
                     <TaskContainer
-                    key={index}
+                    key={`${useId}-${task}`}
                     index={index}
                     task={task}
                     completeTask={completeTask}

@@ -27,6 +27,7 @@ body{
 }
 
 
+
 .todoList-app-container {
   position: relative;
   z-index: 10;
@@ -262,13 +263,6 @@ button.add-btn:hover{
   color: #435473;
 }
 
-.error{
-  color: #ba4747;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 1em 0;
-  font-family: 'Raleway', sans-serif;
-}
 
 .modal-footer{  
   width: 85%;
@@ -312,8 +306,8 @@ button.close-btn:hover{
   text-transform: capitalize;
 }
 
+/*error*/
 
-/** why this is here  **/
 .main-container .list-error{
   z-index: 30;
   color: #ba4747;
@@ -329,6 +323,14 @@ button.close-btn:hover{
   
 }
 
+
+.error{
+  color: #ba4747;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1em 0;
+  font-family: 'Raleway', sans-serif;
+}
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
