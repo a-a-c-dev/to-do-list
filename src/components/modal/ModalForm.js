@@ -15,7 +15,7 @@ const ModalForm = ({ addTask, closeModal}) => {
           timerId = setTimeout(() => fn(...args), 200);
         }
       };
-    const fieldIsValid = useCallback( () => {
+     const fieldIsValid = useCallback( () => {
         const errors = {};
         const textPattern = /^[a-zA-Z0-9 .!?"-]+$/
         if (!newTaskValue) errors.textRequired = "* Text is required, please insert text";
@@ -47,4 +47,4 @@ const ModalForm = ({ addTask, closeModal}) => {
     )
 }
 
-export default ModalForm;
+export default ModalForm ;
