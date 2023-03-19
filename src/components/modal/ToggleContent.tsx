@@ -1,8 +1,14 @@
 
-import React,{useState} from 'react'
+import React,{useState,ReactNode } from 'react'
 import  ReactDOM from 'react-dom';
 
-const ToggleContent = React.memo(({ toggle, content }) => {
+
+interface ToggleContentProps {
+  toggle: (show: () => void) => ReactNode;
+  content: (hide: () => void) => ReactNode;
+}
+
+const ToggleContent = React.memo(({ toggle, content }:ToggleContentProps) => {
     const [isShown, setIsShown] = useState(false);
     const hide = () => setIsShown(false);
     const show = () => setIsShown(true);
@@ -14,7 +20,7 @@ const ToggleContent = React.memo(({ toggle, content }) => {
     );
   })
   
-  export const Modal = ({ children }) => (
+  export const Modal = ({ children }:{children: ReactNode}) => (
     ReactDOM.createPortal(
       <div className="modal-overlay">
         <div className="modal">
@@ -22,7 +28,7 @@ const ToggleContent = React.memo(({ toggle, content }) => {
         </div>
       </div>
       ,
-      document.getElementById('modal-root')
+      document.getElementById('modal-root') as HTMLElement
     )
   );
 

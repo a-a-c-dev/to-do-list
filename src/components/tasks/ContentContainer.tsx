@@ -10,11 +10,14 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 
 const ListContainer = lazy(()=> import ("./ListContainer"));
 
-
+interface Task {
+  taskName: string,
+  isCompleted?: boolean
+} 
 
 
 export const ContentContainer = () => {
-    const [tasks, setTasks] = useLocalStorage('tasks',[
+    const [tasks, setTasks] = useLocalStorage<Task[]>('tasks',[
         {
           taskName: 'Fix Wifi.',
           isCompleted: true
@@ -35,18 +38,18 @@ export const ContentContainer = () => {
           isCompleted: true
         }
       ]);
-    const [isListFull, setIsListFull]  = useState(false);
+    const [isListFull, setIsListFull]  = useState<boolean>(false);
 
-    const addTask = useMemo(()=>taskName => {
+    const addTask = useMemo(()=>(taskName:string) => {
       let taskList = [...tasks, { taskName }];
       setTasks(taskList);
     },[setTasks, tasks]);
-    const completeTask = useMemo(()=> index => {
+    const completeTask = useMemo(()=> (index:number) => {
       let taskList = [...tasks];
       taskList[index].isCompleted = !taskList[index].isCompleted;
       setTasks(taskList);
     },[setTasks, tasks]);
-    const deleteTask = useMemo(()=>index => {
+    const deleteTask = useMemo(()=>(index:number) => {
       let taskList = [...tasks];
       taskList.splice(index, 1);
       setTasks(taskList)
@@ -55,18 +58,18 @@ export const ContentContainer = () => {
     
     useEffect(()=>{
       (tasks.length>=10)?setIsListFull(true):setIsListFull(false);
-    },[tasks.isCompleted,tasks.length, deleteTask]);
+    },[tasks.length, deleteTask]);
 
     return (
         <>    
             <ToggleContent
-              toggle={show =>  
+              toggle={(show: () => void) =>  
                 isListFull?
                 (<ErrorListFull/>)
                 :
                 (
                   <AddTaskBtn show={show}/> )}
-                     content={hide => (
+                     content={(hide:()=> void) => (
                       <Modal>
                         <ModalForm addTask={addTask}  closeModal={hide}/>
                       </Modal>

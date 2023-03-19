@@ -1,6 +1,12 @@
 import React from "react";
 
-export const TextContainer = React.memo(({index ,taskName , isCompleted}) => {
+interface TextContainerProps {
+    index:number ,
+    taskName:string ,
+    isCompleted?:boolean
+}
+
+export const TextContainer = React.memo(({index ,taskName , isCompleted}:TextContainerProps) => {
     return (
         <div className="text-container">
             <p className="counter-task">

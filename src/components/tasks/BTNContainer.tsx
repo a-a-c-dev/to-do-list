@@ -4,7 +4,13 @@ import completeIcon from '../../assets/complete-icon.svg';
 import deleteIcon from '../../assets/delete-icon.svg';
 import {BTN } from './BTN'
 
-export const BTNContainer = ({completeTask,deleteTask,index}) => {
+interface Props {
+    completeTask :Function,
+    deleteTask: Function,
+    index:number
+}
+
+export const BTNContainer = ({completeTask,deleteTask,index}:Props) => {
 
     return (
         

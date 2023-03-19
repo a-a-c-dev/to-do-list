@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ModalFooter = ({closeModal}) => {
+export const ModalFooter = ({closeModal}:{closeModal:()=>void}) => {
     return (
         <div className='modal-footer'>
             <button className="add-btn" type="submit">Add task</button>
